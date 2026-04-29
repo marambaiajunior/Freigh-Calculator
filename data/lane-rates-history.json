@@ -7,5 +7,14 @@
       "west": 2.39
     },
     "sourceSummary": "Initial seed from public DAT/Scale Funding references"
+  },
+  {
+    "updatedAt": "2026-04-29T15:30:07.522Z",
+    "defaultCostPerMile": 3.44,
+    "regionalAnchors": {
+      "midwest": 2.88,
+      "west": 2.92
+    },
+    "sourceSummary": "Scale Funding Current Freight Rates"
   }
 ]

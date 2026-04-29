@@ -736,7 +736,7 @@ button:focus-visible {
               <label for="costPerMile">Cost Per Mile ($)</label>
               <input type="number" id="costPerMile" name="costPerMile"
                      step="0.01" min="0" max="100"
-                     value="2.70"
+                     value="3.44"
                      aria-describedby="costPerMileError" />
               <span class="error-message" id="costPerMileError" aria-live="polite"></span>
               <small id="laneRateHint" class="lane-hint" aria-live="polite"></small>
@@ -798,8 +798,8 @@ button:focus-visible {
 /*
  * FreightCalculator — Abby Transport
  *
- * Calibration: March 2026
- * Source: DAT Trendlines, Scale Funding (Feb 27 2026), Dynamic Logistix (Mar 2026)
+ * Calibration: Auto-updated weekly via GitHub Actions
+ * Source: Scale Funding Current Freight Rates
  *   Flatbed national avg : $2.70 – $2.95/mi (all-in incl. FSC)
  *   Midwest flatbed      : $2.97/mi (highest region)
  *   West flatbed         : $2.31/mi linehaul / ~$2.45–2.55 all-in
@@ -820,7 +820,7 @@ const FreightCalculator = {
   API_KEY:              '5b3ce3597851110001cf6248b4d09a96abdf3939cbb99a2f87f1b6ee1a51234ab4f2892c31ec4051',
   METERS_PER_MILE:      1609.34,
   BASE_FACTOR_TYCON:    3800 / (40 * 2389),
-  DEFAULT_COST_PER_MILE: 2.70,   // ← calibrated to DAT national flatbed March 2026
+  DEFAULT_COST_PER_MILE: 3.44, // auto-updated weekly; see data/lane-rates.json
   MINIMUM_CHARGE:        600,    // ← raised from $500
 
   /* ─── State → Region mapping ──────────────────────────────────
@@ -881,15 +881,15 @@ const FreightCalculator = {
    *   National matrix avg ≈ $2.73  (DAT national flatbed ~$2.70)
    * ─────────────────────────────────────────────────────────── */
   REGION_RATES: {
-    //         NOR    SOU    MID    SPL    TEX    MTN    SWE    NWE
-    NOR: { NOR:2.75, SOU:2.90, MID:2.95, SPL:3.05, TEX:3.10, MTN:3.15, SWE:3.20, NWE:3.25 },
-    SOU: { NOR:2.85, SOU:2.70, MID:2.80, SPL:2.85, TEX:2.75, MTN:3.00, SWE:3.05, NWE:3.15 },
-    MID: { NOR:3.00, SOU:2.90, MID:2.80, SPL:2.70, TEX:2.85, MTN:2.90, SWE:3.00, NWE:3.05 },
-    SPL: { NOR:3.00, SOU:2.75, MID:2.65, SPL:2.55, TEX:2.60, MTN:2.70, SWE:2.80, NWE:2.90 },
-    TEX: { NOR:3.05, SOU:2.65, MID:2.70, SPL:2.55, TEX:2.45, MTN:2.70, SWE:2.65, NWE:2.90 },
-    MTN: { NOR:3.10, SOU:2.90, MID:2.75, SPL:2.65, TEX:2.70, MTN:2.45, SWE:2.55, NWE:2.55 },
-    SWE: { NOR:3.15, SOU:3.00, MID:2.85, SPL:2.75, TEX:2.65, MTN:2.55, SWE:2.40, NWE:2.60 },
-    NWE: { NOR:3.25, SOU:3.10, MID:2.95, SPL:2.90, TEX:2.90, MTN:2.60, SWE:2.65, NWE:2.50 },
+    // NOR SOU MID SPL TEX MTN SWE NWE
+    NOR: { NOR:3.50, SOU:3.69, MID:3.65, SPL:3.84, TEX:3.95, MTN:3.97, SWE:3.96, NWE:4.03 },
+    SOU: { NOR:3.63, SOU:3.44, MID:3.46, SPL:3.58, TEX:3.50, MTN:3.78, SWE:3.78, NWE:3.90 },
+    MID: { NOR:3.71, SOU:3.58, MID:3.36, SPL:3.30, TEX:3.52, MTN:3.55, SWE:3.61, NWE:3.67 },
+    SPL: { NOR:3.77, SOU:3.46, MID:3.24, SPL:3.17, TEX:3.27, MTN:3.36, SWE:3.43, NWE:3.55 },
+    TEX: { NOR:3.89, SOU:3.38, MID:3.34, SPL:3.21, TEX:3.12, MTN:3.40, SWE:3.28, NWE:3.59 },
+    MTN: { NOR:3.91, SOU:3.66, MID:3.37, SPL:3.30, TEX:3.40, MTN:3.06, SWE:3.13, NWE:3.13 },
+    SWE: { NOR:3.90, SOU:3.72, MID:3.43, SPL:3.37, TEX:3.28, MTN:3.13, SWE:2.90, NWE:3.14 },
+    NWE: { NOR:4.03, SOU:3.84, MID:3.55, SPL:3.55, TEX:3.59, MTN:3.19, SWE:3.20, NWE:3.02 },
   },
 
   /* ─── Cached DOM references ───────────────────────────────────── */
