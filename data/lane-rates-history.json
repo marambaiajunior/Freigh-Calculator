@@ -1,0 +1,11 @@
+[
+  {
+    "updatedAt": "2026-04-28T00:00:00.000Z",
+    "defaultCostPerMile": 2.92,
+    "regionalAnchors": {
+      "midwest": 3.14,
+      "west": 2.39
+    },
+    "sourceSummary": "Initial seed from public DAT/Scale Funding references"
+  }
+]

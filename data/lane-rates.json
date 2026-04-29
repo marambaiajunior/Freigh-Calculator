@@ -1,0 +1,125 @@
+{
+  "updatedAt": "2026-04-28T00:00:00.000Z",
+  "equipment": "flatbed",
+  "rateType": "estimated all-in spot rate per mile",
+  "defaultCostPerMile": 2.92,
+  "regionalAnchors": {
+    "midwest": 3.14,
+    "west": 2.39
+  },
+  "regionCodes": {
+    "NOR": "Northeast",
+    "SOU": "Southeast",
+    "MID": "Midwest",
+    "SPL": "South Plains",
+    "TEX": "Texas",
+    "MTN": "Mountain",
+    "SWE": "Southwest / West",
+    "NWE": "Northwest / West"
+  },
+  "regionRates": {
+    "NOR": {
+      "NOR": 2.97,
+      "SOU": 3.14,
+      "MID": 3.23,
+      "SPL": 3.32,
+      "TEX": 3.35,
+      "MTN": 3.36,
+      "SWE": 3.35,
+      "NWE": 3.4
+    },
+    "SOU": {
+      "NOR": 3.08,
+      "SOU": 2.92,
+      "MID": 3.07,
+      "SPL": 3.1,
+      "TEX": 2.97,
+      "MTN": 3.2,
+      "SWE": 3.19,
+      "NWE": 3.29
+    },
+    "MID": {
+      "NOR": 3.29,
+      "SOU": 3.18,
+      "MID": 3.11,
+      "SPL": 2.98,
+      "TEX": 3.12,
+      "MTN": 3.13,
+      "SWE": 3.17,
+      "NWE": 3.23
+    },
+    "SPL": {
+      "NOR": 3.26,
+      "SOU": 2.99,
+      "MID": 2.92,
+      "SPL": 2.79,
+      "TEX": 2.83,
+      "MTN": 2.9,
+      "SWE": 2.94,
+      "NWE": 3.05
+    },
+    "TEX": {
+      "NOR": 3.3,
+      "SOU": 2.87,
+      "MID": 2.96,
+      "SPL": 2.77,
+      "TEX": 2.65,
+      "MTN": 2.88,
+      "SWE": 2.77,
+      "NWE": 3.03
+    },
+    "MTN": {
+      "NOR": 3.31,
+      "SOU": 3.1,
+      "MID": 2.97,
+      "SPL": 2.85,
+      "TEX": 2.88,
+      "MTN": 2.58,
+      "SWE": 2.63,
+      "NWE": 2.63
+    },
+    "SWE": {
+      "NOR": 3.29,
+      "SOU": 3.14,
+      "MID": 3.02,
+      "SPL": 2.89,
+      "TEX": 2.77,
+      "MTN": 2.63,
+      "SWE": 2.43,
+      "NWE": 2.63
+    },
+    "NWE": {
+      "NOR": 3.4,
+      "SOU": 3.24,
+      "MID": 3.12,
+      "SPL": 3.05,
+      "TEX": 3.03,
+      "MTN": 2.69,
+      "SWE": 2.68,
+      "NWE": 2.53
+    }
+  },
+  "methodology": {
+    "baseNationalAverage": 2.7,
+    "note": "Initial seed based on publicly reported flatbed all-in national rates around late March / early April 2026. The GitHub Action will try to refresh this weekly. This is an estimating model, not a substitute for DAT RateView or another paid lane-level API."
+  },
+  "sources": [
+    {
+      "source": "DAT report republished by AJOT",
+      "url": "https://www.ajot.com/news/dat-truckload-spot-rates-and-load-to-truck-ratios-march-29-april-4-2026",
+      "rates": {
+        "national": 2.92
+      }
+    },
+    {
+      "source": "Scale Funding Current Freight Rates",
+      "url": "https://getscalefunding.com/resources/current-freight-rates/",
+      "rates": {
+        "national": 2.94,
+        "midwest": 3.14,
+        "west": 2.39
+      }
+    }
+  ],
+  "failures": []
+}

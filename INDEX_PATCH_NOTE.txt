@@ -1,0 +1,9 @@
+This package does not replace your full index.html.
+
+It intentionally updates index.html through GitHub Actions every week. The script patches these existing parts automatically:
+
+1. DEFAULT_COST_PER_MILE: 2.70
+2. REGION_RATES: { ... }
+3. The visible Cost Per Mile input value="2.70"
+
+That approach is safer than sending you a 400 KB index.html with a giant embedded logo and hoping nobody breathes near the wrong line.

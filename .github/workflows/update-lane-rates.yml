@@ -1,0 +1,44 @@
+name: Update Freight Lane Rates
+
+on:
+  schedule:
+    # Every Monday at 13:15 UTC.
+    # That is usually Monday morning in Utah. GitHub schedules are evaluated in UTC.
+    - cron: "15 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-lane-rates:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Update freight lane rates
+        env:
+          # Optional. Only use these if you later connect a paid DAT/API endpoint.
+          DAT_API_URL: ${{ secrets.DAT_API_URL }}
+          DAT_API_KEY: ${{ secrets.DAT_API_KEY }}
+          EXTRA_RATE_SOURCE_URLS: ${{ vars.EXTRA_RATE_SOURCE_URLS }}
+        run: node scripts/update-lane-rates.mjs
+
+      - name: Commit updated rates
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html data/lane-rates.json data/lane-rates-history.json
+          if git diff --cached --quiet; then
+            echo "No lane-rate changes to commit."
+          else
+            git commit -m "Update weekly freight lane rates"
+            git push
+          fi
