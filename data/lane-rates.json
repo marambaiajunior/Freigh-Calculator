@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-05-11T16:11:35.704Z",
+  "updatedAt": "2026-05-18T16:33:15.477Z",
   "equipment": "flatbed",
   "rateType": "estimated all-in spot rate per mile",
   "defaultCostPerMile": 3.44,
@@ -108,7 +108,7 @@
       "source": "Scale Funding Current Freight Rates",
       "url": "https://getscalefunding.com/resources/current-freight-rates/",
       "weight": 2.5,
-      "foundAt": "2026-05-11T16:11:36.098Z",
+      "foundAt": "2026-05-18T16:33:15.874Z",
       "rates": {
         "national": 3.44,
         "midwest": 2.88,
